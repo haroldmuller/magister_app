@@ -25,8 +25,8 @@ class TestController < ApplicationController
 
   private
   def set_context
-    @course   = Course.sample
-    @homework = Homework.sample
+    @course   = Course.all.sample
+    @homework = @course.homeworks.sample
   end
 
   def set_breadcrumbs
