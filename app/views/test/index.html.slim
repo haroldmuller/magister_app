@@ -1,20 +1,20 @@
-h1.title @course.name
-h3.subtitle @homework.name
+h1.title = @course.name
+h3.subtitle = @homework.name
 
-p @homework.content
+p == @homework.content
 
 h4 Students
-  table.table
-    thead
-      th Email
-      th Name
-      th Created At
-      th Answered At  
+table.table
+  thead
+    th Email
+    th Name
+    th Created At
+    th Answered At  
 
-    tbody
-      - @students.each do |student|
-        tr
-          td = student.email
-          td = student.name
-          td = t student.created_at, :short
-          td = @users.find do |user| user.id == student.id end ? 'OK' : 'x'
+  tbody
+    - @students.each do |student|
+      tr
+        td = student.email
+        td = student.name
+        td = t student.created_at, :short
+        td = @users.find do |user| user.id == student.id end ? 'OK' : 'x'
