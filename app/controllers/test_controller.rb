@@ -13,7 +13,7 @@ class TestController < ApplicationController
     @answers  = Answer
                   .includes(:user)
                   .where(homework_id: @homework.id)
-                  .has_answered([:responder, :argumentar, :rehacer].sample)
+                  .has_answered(%w{responder argumentar rehacer}.sample)
     @users    = User.where(id: @answers.map(&:user_id))
     @total    = @students.count
     @current  = @users.count

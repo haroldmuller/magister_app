@@ -15,6 +15,6 @@ table.table
     - @students.each do |student|
       tr
         td = student.email
-        td = student.full_name.split.map(&:capitalize).join(" ")
+        td = student.full_name
         td = t student.created_at, :short
         td = @users.find do |user| user.id == student.id end ? 'OK' : 'x'
