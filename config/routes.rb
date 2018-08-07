@@ -31,6 +31,8 @@ Rails.application.routes.draw do
   resources :reports
   resources :interactions, module: :videos, only: [:index, :show]
 
+  resources :test, only: [:index, :create]
+
   post '/courses/:course_id/trees/:id' => 'trees#edx_view'
   get 'trees/report_values', to: 'trees#set_report_values', as: 'set_report_values'
 
