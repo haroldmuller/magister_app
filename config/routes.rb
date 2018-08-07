@@ -5,7 +5,6 @@ Rails.application.routes.draw do
 
   resources :comments
   root 'home#home'
-  get 'test' => 'home#test'
   get 'courses/archived' => 'courses#archived', as: :archived_courses
 
   resources :registers

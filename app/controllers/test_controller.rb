@@ -1,12 +1,10 @@
 class TestController < ApplicationController
+  before_action :set_context
   before_action :set_breadcrumbs
 
   respond_to :html, :json
 
   def index
-    @course   = Course.sample
-    @homework = Homework.sample
-
     @users    = []
     @current  = 0
     @total    = 0
@@ -23,5 +21,15 @@ class TestController < ApplicationController
 
   def create
     render json: { hello: "world", key: "value", date: Time.now }
+  end
+
+  private
+  def set_context
+    @course   = Course.sample
+    @homework = Homework.sample
+  end
+
+  def set_breadcrumbs
+    ["Mis Cursos", @course.name, "Mis Tareas", @homework.name]
   end
 end
