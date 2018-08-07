@@ -1,5 +1,6 @@
 h1.title = @course.name
 h3.subtitle = @homework.name
+strong = @counter
 
 p == @homework.content
 
@@ -16,5 +17,5 @@ table.table
       tr
         td = student.email
         td = student.full_name
-        td = t student.created_at, :short
+        td = student.created_at
         td = @users.find do |user| user.id == student.id end ? 'OK' : 'x'

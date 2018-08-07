@@ -17,6 +17,8 @@ class TestController < ApplicationController
     @users    = User.where(id: @answers.map(&:user_id))
     @total    = @students.count
     @current  = @users.count
+
+    @count    = $redis.incr("test:counter")
   end
 
   def create
